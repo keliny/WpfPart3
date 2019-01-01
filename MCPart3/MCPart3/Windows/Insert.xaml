@@ -8,8 +8,7 @@
         Title="Insert" Height="409.164" Width="219.415">
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="169*" />
-            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="54,36,0,0" TextWrapping="Wrap" Text="Create Accessory"
                    VerticalAlignment="Top" Width="115" Height="16" />
@@ -26,7 +25,7 @@
                    VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2" Height="16" />
         <TextBox x:Name="RecommendedAmountInput" HorizontalAlignment="Left" Height="23" Margin="49,215,0,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="ValidateRecommendedAmount"/>
-        <ComboBox x:Name="CategoryInput" Margin="49,95,0,0" VerticalAlignment="Top" Height="22" DisplayMemberPath="CategoryName" SelectionChanged="CategoryChanged"/>
+        <ComboBox x:Name="CategoryInput" Margin="49,95,40,0" VerticalAlignment="Top" Height="22" DisplayMemberPath="CategoryName" SelectionChanged="CategoryChanged"/>
         <Button Content="Create" HorizontalAlignment="Left" Margin="49,278,0,0" VerticalAlignment="Top" Width="120"
                 Height="20" Click="Button_Click" />
 

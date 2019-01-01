@@ -38,6 +38,8 @@ namespace MCPart3.Windows
                 AmountInput.Text = "";
                 AmountInput.IsEnabled = false;
                 ValidationStatus["Category"] = false;
+                ValidationStatus["Accessory"] = false;
+                ValidationStatus["Amount"] = false;
             }
             else
             {
@@ -45,6 +47,10 @@ namespace MCPart3.Windows
                 AccessoryInput.ItemsSource = _db.Accessories.Where(a =>
                     a.Status == "Active").ToList().Where(c => c.Category == (CategoryInput.SelectedItem as Category)).ToList();
                 ValidationStatus["Category"] = true;
+                ValidationStatus["Accessory"] = false;
+                ValidationStatus["Amount"] = false;
+                AmountInput.Text = "";
+                AmountInput.IsEnabled = false;
             }
         }
 
@@ -56,14 +62,14 @@ namespace MCPart3.Windows
                 AmountInput.Text = "";
                 AmountInput.IsEnabled = false;
                 ValidationStatus["Accessory"] = false;
-
+                ValidationStatus["Amount"] = false;
             }
             else
             {
                 Acc = AccessoryInput.SelectedItem as Accessory;
                 AmountInput.IsEnabled = true;
                 ValidationStatus["Accessory"] = true;
-
+                ValidationStatus["Amount"] = false;
             }
         }
 
@@ -126,7 +132,7 @@ namespace MCPart3.Windows
                 _db.HandOuts.Add(newHandOut);
                 _db.SaveChanges();
 
-                MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
+                MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList(); // not ideal I know... When called from the mainWindow it does not update the values in the grid...
                 Close();
             }
 

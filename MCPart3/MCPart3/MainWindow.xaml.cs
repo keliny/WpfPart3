@@ -114,6 +114,7 @@ namespace MCPart3
         /// </summary>
         public static void UpdateGrid()
         {
+
             // This is to "generate" the containers for grid, without this the itemsSource is not enough to go through the list...
             System.Windows.Threading.Dispatcher.CurrentDispatcher.BeginInvoke(
                 System.Windows.Threading.DispatcherPriority.ApplicationIdle, new Action(ProcessRows));

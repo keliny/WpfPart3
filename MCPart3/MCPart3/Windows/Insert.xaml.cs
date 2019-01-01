@@ -18,15 +18,16 @@ namespace MCPart3.Windows
 
         public Insert()
         {
-            InitializeComponent();
-            CategoryInput.ItemsSource = _db.Categories.ToList();
-            CategoryInput.SelectedItem = _db.Categories.FirstOrDefault();
             ValidationStatus = new Dictionary<string, bool>()
             {
                 {"Category", false },
                 {"Amount", false },
                 {"Name", false }
             };
+            InitializeComponent();
+            CategoryInput.ItemsSource = _db.Categories.ToList();
+
+
         }
 
         private void CategoryChanged(object sender, SelectionChangedEventArgs e)

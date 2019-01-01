@@ -19,6 +19,12 @@ namespace MCPart3.Windows
 
         public Update(int id)
         {
+            ValidationStatus = new Dictionary<string, bool>()
+            {
+                {"Category", true },
+                {"Amount", true },
+                {"Name", true }
+            };
             _id = id;
             InitializeComponent();
             _acc = (from a in _db.Accessories where a.Id == _id select a).Single();
@@ -26,12 +32,7 @@ namespace MCPart3.Windows
             CategoryInput.SelectedItem = _acc.Category;
             NameInput.Text = _acc.Name;
             MinimumAmountInput.Text = _acc.Min.ToString();
-            ValidationStatus = new Dictionary<string, bool>()
-            {
-                {"Category", true },
-                {"Amount", true },
-                {"Name", true }
-            };
+
         }
 
         private void CategoryChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
