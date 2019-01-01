@@ -1,17 +1,23 @@
+using MCPart3.Models;
+
 namespace MCPart3
 {
     using System.Data.Entity;
 
-    public partial class MCDB : DbContext
+    public class MCDB : DbContext
     {
         public MCDB()
             : base("name=MCDB")
         {
         }
 
+        public DbSet<Accessory> Accessories { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
+
+
     }
 }

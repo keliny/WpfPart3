@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MCPart3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="900">
     <Grid>
-        
+        <DockPanel Width="600" HorizontalAlignment="Left">
+            <DataGrid x:Name="MyDataGrid" x:FieldModifier="public" AutoGenerateColumns="false" ColumnWidth="*" IsReadOnly="True" Margin="0,0,0,96">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category.CategoryName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding AmountStored}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Min" Binding="{Binding Min}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <Button x:Name="InsertBtn" Content="Insert" HorizontalAlignment="Left" Margin="659,59,0,0" VerticalAlignment="Top" Width="75" Click="InsertBtn_Click"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="659,102,0,0" VerticalAlignment="Top" Width="75" Click="UpdateBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="659,145,0,0" VerticalAlignment="Top" Width="75" Click="DeleteBtn_Click"/>
+        <Button x:Name="HandOverBtn" Content="Hand Over" HorizontalAlignment="Left" Margin="24,589,0,0" VerticalAlignment="Top" Width="75" Click="HandOverBtn_Click"/>
+        <Button x:Name="AcceptDeliveryBtn" Content="Accept Delivery" HorizontalAlignment="Left" Margin="24,627,0,0" VerticalAlignment="Top" Width="75" Click="AcceptDeliveryBtn_Click"/>
+
     </Grid>
 </Window>

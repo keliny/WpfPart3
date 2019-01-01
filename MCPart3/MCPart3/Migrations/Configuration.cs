@@ -1,15 +1,14 @@
+using MCPart3.Models;
+
 namespace MCPart3.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MCPart3.MCDB>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(MCPart3.MCDB context)
@@ -18,6 +17,14 @@ namespace MCPart3.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+            context.Categories.AddOrUpdate(x => x.CategoryName,
+                new Category() { CategoryName = "Office supplies" },
+                new Category() { CategoryName = "Drinks" },
+                new Category() { CategoryName = "Food" },
+                new Category() { CategoryName = "Inventory" },
+                new Category() { CategoryName = "Other" }
+                );
         }
     }
 }

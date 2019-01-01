@@ -79,6 +79,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201812312220216_AddedCategory.cs" />
+    <Compile Include="Migrations\201812312220216_AddedCategory.Designer.cs">
+      <DependentUpon>201812312220216_AddedCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901010004319_ChangeOfCategory.cs" />
+    <Compile Include="Migrations\201901010004319_ChangeOfCategory.Designer.cs">
+      <DependentUpon>201901010004319_ChangeOfCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validations\NotEmptyStringValidationRule.cs" />
+    <Compile Include="Validations\Validations.cs" />
+    <Compile Include="Windows\AcceptDelivery.xaml.cs">
+      <DependentUpon>AcceptDelivery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HandOver.xaml.cs">
+      <DependentUpon>HandOver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Insert.xaml.cs">
+      <DependentUpon>Insert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Update.xaml.cs">
+      <DependentUpon>Update.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,11 +113,32 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\AcceptDelivery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HandOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Insert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MCDB.cs" />
+    <Compile Include="DataStore\MCDB.cs" />
+    <Compile Include="Migrations\201812311900382_InitialMigration.cs" />
+    <Compile Include="Migrations\201812311900382_InitialMigration.Designer.cs">
+      <DependentUpon>201812311900382_InitialMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accessory.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,6 +152,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201812311900382_InitialMigration.resx">
+      <DependentUpon>201812311900382_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812312220216_AddedCategory.resx">
+      <DependentUpon>201812312220216_AddedCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901010004319_ChangeOfCategory.resx">
+      <DependentUpon>201901010004319_ChangeOfCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,15 +172,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="WpfDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="WpfDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>WpfDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

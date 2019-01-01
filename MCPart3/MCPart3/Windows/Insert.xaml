@@ -1,0 +1,35 @@
+﻿<Window x:Class="MCPart3.Windows.Insert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MCPart3.Windows"
+        xmlns:validations="clr-namespace:MCPart3.Validations"
+        Title="Insert" Height="409.164" Width="219.415">
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="169*" />
+            <ColumnDefinition Width="40*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="54,36,0,0" TextWrapping="Wrap" Text="Create Accessory"
+                   VerticalAlignment="Top" Width="115" Height="16" />
+        <TextBlock HorizontalAlignment="Left" Margin="49,74,0,0" TextWrapping="Wrap" Text="Category"
+                   VerticalAlignment="Top" Height="48" Width="120" />
+        <TextBlock HorizontalAlignment="Left" Margin="49,133,0,0" TextWrapping="Wrap" Text="Name"
+                   VerticalAlignment="Top" RenderTransformOrigin="0.432,0.388" Height="16" Width="120" />
+
+        <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="23" Margin="49,154,0,0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="120" LostFocus="ValidateName"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="49,194,0,0" TextWrapping="Wrap" Text="Recommended Amount"
+                   VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2" Height="16" />
+        <TextBox x:Name="RecommendedAmountInput" HorizontalAlignment="Left" Height="23" Margin="49,215,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="ValidateRecommendedAmount"/>
+        <ComboBox x:Name="CategoryInput" Margin="49,95,0,0" VerticalAlignment="Top" Height="22" DisplayMemberPath="CategoryName"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="49,278,0,0" VerticalAlignment="Top" Width="120"
+                Height="20" Click="Button_Click" />
+
+
+    </Grid>
+</Window>
