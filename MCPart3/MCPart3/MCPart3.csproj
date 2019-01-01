@@ -87,6 +87,11 @@
     <Compile Include="Migrations\201901010004319_ChangeOfCategory.Designer.cs">
       <DependentUpon>201901010004319_ChangeOfCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901012016242_CreateHandOutsTable.cs" />
+    <Compile Include="Migrations\201901012016242_CreateHandOutsTable.Designer.cs">
+      <DependentUpon>201901012016242_CreateHandOutsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HandOut.cs" />
     <Compile Include="Validations\NotEmptyStringValidationRule.cs" />
     <Compile Include="Validations\Validations.cs" />
     <Compile Include="Windows\AcceptDelivery.xaml.cs">
@@ -160,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901010004319_ChangeOfCategory.resx">
       <DependentUpon>201901010004319_ChangeOfCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901012016242_CreateHandOutsTable.resx">
+      <DependentUpon>201901012016242_CreateHandOutsTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

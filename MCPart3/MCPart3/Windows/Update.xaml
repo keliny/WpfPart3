@@ -22,7 +22,7 @@
                    VerticalAlignment="Top" Width="120" Height="16" />
         <TextBox x:Name="MinimumAmountInput" HorizontalAlignment="Left" Height="23" Margin="49,215,0,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="ValidateStored"/>
-        <ComboBox x:Name="CategoryInput" Margin="49,95,40,0" VerticalAlignment="Top" Height="22" DisplayMemberPath="CategoryName"/>
+        <ComboBox x:Name="CategoryInput" Margin="49,95,40,0" VerticalAlignment="Top" Height="22" DisplayMemberPath="CategoryName" SelectionChanged="CategoryChanged"/>
         <Button Content="Update" HorizontalAlignment="Left" Margin="49,278,0,0" VerticalAlignment="Top" Width="120"
                 Height="20" Click="Button_Click" />
 

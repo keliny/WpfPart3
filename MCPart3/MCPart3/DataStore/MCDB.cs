@@ -13,6 +13,7 @@ namespace MCPart3
 
         public DbSet<Accessory> Accessories { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<HandOut> HandOuts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

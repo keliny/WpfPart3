@@ -1,4 +1,5 @@
 ﻿using MCPart3.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -100,7 +101,7 @@ namespace MCPart3.Windows
         {
             if (ValidationStatus.ContainsValue(false))
             {
-                string errors = "";
+                var errors = "";
                 foreach (var val in ValidationStatus.Where(v => v.Value == false))
                 {
                     errors += val.Key + "\n";
@@ -115,8 +116,16 @@ namespace MCPart3.Windows
                                              select a).Single();
 
                 updateAccessory.AmountStored -= int.Parse(AmountInput.Text);
+                var newHandOut = new HandOut()
+                {
+                    Date = DateTime.Now,
+                    Accessory = updateAccessory,
+                    CustomerName = CustomerInput.Text
+                };
 
+                _db.HandOuts.Add(newHandOut);
                 _db.SaveChanges();
+
                 MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
                 Close();
             }
