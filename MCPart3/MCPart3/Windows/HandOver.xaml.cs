@@ -132,7 +132,7 @@ namespace MCPart3.Windows
                 _db.HandOuts.Add(newHandOut);
                 _db.SaveChanges();
 
-                MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList(); // not ideal I know... When called from the mainWindow it does not update the values in the grid...
+                MainWindow.Datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList(); // not ideal I know... When called from the mainWindow it does not update the values in the grid...
                 Close();
             }
 

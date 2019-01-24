@@ -13,8 +13,8 @@ namespace MCPart3
     /// </summary>
     public partial class MainWindow : Window
     {
-        static MCDB _db = new MCDB();
-        public static DataGrid datagrid;
+        private static readonly MCDB Db = new MCDB();
+        public static DataGrid Datagrid;
 
 
         public MainWindow()
@@ -28,10 +28,10 @@ namespace MCPart3
         /// </summary>
         private void Load()
         {
-            var test = _db.Categories.ToList(); // This is to get categories, without it they are empty
+            var test = Db.Categories.ToList(); // This is to get categories, without it they are empty
 
-            MyDataGrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
-            datagrid = MyDataGrid;
+            MyDataGrid.ItemsSource = Db.Accessories.Where(a => a.Status == "Active").ToList();
+            Datagrid = MyDataGrid;
             UpdateGrid();
 
         }
@@ -43,7 +43,7 @@ namespace MCPart3
         {
             Insert windowInsert = new Insert();
             windowInsert.ShowDialog();
-            datagrid.Items.Refresh();
+            Datagrid.Items.Refresh();
             UpdateGrid();
         }
 
@@ -80,10 +80,10 @@ namespace MCPart3
             else
             {
                 int id = ((Accessory)MyDataGrid.SelectedItem).Id;
-                var deleteAccessory = _db.Accessories.Single(a => a.Id == id);
+                var deleteAccessory = Db.Accessories.Single(a => a.Id == id);
                 deleteAccessory.Status = "Deleted";
-                _db.SaveChanges();
-                datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
+                Db.SaveChanges();
+                Datagrid.ItemsSource = Db.Accessories.Where(a => a.Status == "Active").ToList();
                 UpdateGrid();
             }
 
@@ -114,7 +114,6 @@ namespace MCPart3
         /// </summary>
         public static void UpdateGrid()
         {
-
             // This is to "generate" the containers for grid, without this the itemsSource is not enough to go through the list...
             System.Windows.Threading.Dispatcher.CurrentDispatcher.BeginInvoke(
                 System.Windows.Threading.DispatcherPriority.ApplicationIdle, new Action(ProcessRows));
@@ -126,9 +125,9 @@ namespace MCPart3
         private static void ProcessRows()
         {
 
-            foreach (Accessory accessory in datagrid.ItemsSource)
+            foreach (Accessory accessory in Datagrid.ItemsSource)
             {
-                var row = datagrid.ItemContainerGenerator.ContainerFromItem(accessory) as DataGridRow;
+                var row = Datagrid.ItemContainerGenerator.ContainerFromItem(accessory) as DataGridRow;
                 if (accessory.AmountStored < accessory.Min)
                 {
                     if (row != null) row.Background = Brushes.Red;

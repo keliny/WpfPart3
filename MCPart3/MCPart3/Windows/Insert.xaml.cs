@@ -96,7 +96,7 @@ namespace MCPart3.Windows
 
                 _db.Accessories.Add(newAccessory);
                 _db.SaveChanges();
-                MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
+                MainWindow.Datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
                 MainWindow.UpdateGrid();
                 Close();
             }

@@ -104,7 +104,7 @@ namespace MCPart3.Windows
                 updateAccessory.AmountStored += int.Parse(AmountInput.Text);
 
                 _db.SaveChanges();
-                MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
+                MainWindow.Datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
                 Close();
             }
         }

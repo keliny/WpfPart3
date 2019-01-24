@@ -100,7 +100,7 @@ namespace MCPart3.Windows
                 updateAccessory.Category = CategoryInput.SelectedItem as Category;
 
                 _db.SaveChanges();
-                MainWindow.datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
+                MainWindow.Datagrid.ItemsSource = _db.Accessories.Where(a => a.Status == "Active").ToList();
                 Close();
             }
 
